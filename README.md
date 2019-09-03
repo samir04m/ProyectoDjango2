@@ -58,3 +58,10 @@ Creación de un super usuario
 ```
 python manage.py createsuperuser
 ```
+
+### Relaciones en Modelos
+Uno a uno: ```autor_id = models.OneToOneField(Autor, on_delete=models.CASCADE)```
+
+Uno a muchos: ```autor_id = models.ForeignKey(Autor, on_delete=models.CASCADE)```
+
+Muchos a muchos: ```autor_id = models.ManyToManyField(Autor)```
