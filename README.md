@@ -33,3 +33,24 @@ Se recomienda crear una carpeta con el nombre del proyecto con la primera letra 
 django-admin startproject nombreProyecto
 ```
 ***Nota:*** El nombre del proyecto debe iniciar con letra minúscula.
+
+### Creación de una Aplicación
+En la carpeta raíz del proyecto creamos una carpeta llamada “apps” nos posicionamos dentro de ella en la terminal y colocamos
+```
+django-admin startapp nombreAplicacion
+```
+Dentro de la carpeta apps se crea un archivo llamado  __ _init_ __.py
+
+Recordar que cada aplicación que se cree se debe incluir en la lista ***INSTALLED_APPS*** en archivo ***settings.py***
+
+### Creación de Modelos y Migración
+Luego de crear los modelos, se configura la base de datos a utilizar.
+
+Para crear y migrar:
+```
+ python manage.py makemigrations
+```
+```
+ python manage.py migrate
+
+```
