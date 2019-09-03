@@ -33,8 +33,16 @@ def editarAutor(request, id):
             autor_form = AutorForm(request.POST, instance=autor)
             if autor_form.is_valid():
                 autor_form.save()
-            return redirect('index')
+            return redirect('libro:listar_autor')
     except ObjectDoesNotExist as e:
         error = e
 
     return render(request, 'libro/crear_autor.html', {'autor_form':autor_form, 'error':error})
+
+
+def eliminarAutor(request, id):
+    autor = Autor.objects.get(id=id)
+    if request.method == 'POST':
+        autor.delete()
+        return redirect('libro:listar_autor')
+    return render(request, 'libro/eliminar_autor.html', {'autor':autor})
