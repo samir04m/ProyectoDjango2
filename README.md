@@ -54,3 +54,7 @@ Para crear y migrar:
  python manage.py migrate
 
 ```
+Creación de un super usuario
+```
+python manage.py createsuperuser
+```
