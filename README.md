@@ -1,5 +1,4 @@
 # Documentación Django 2
-# Documentación Django 2
 Se requiere de Python en su versión 3.6.8
 
 ## Instalación de paquetes requeridos
