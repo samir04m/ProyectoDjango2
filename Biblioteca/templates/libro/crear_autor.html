@@ -5,7 +5,13 @@
 {% block body %}
     <form method="POST">
         {% csrf_token %}
-        {{ autor_form.as_p }}
-        <button type="submit">Crear</button>
+
+        {% if error %}
+            <h4>{{error}}</h4>
+        {% else %}
+            {{ autor_form.as_p }}
+            <button type="submit">Crear</button>
+        {% endif %}
+
     </form>
 {% endblock %}
