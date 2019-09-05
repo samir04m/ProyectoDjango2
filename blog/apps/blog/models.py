@@ -11,7 +11,7 @@ class Categoria(models.Model):
         verbose_name_plural = 'Categorias'
         ordering = ['nombre']
 
-    def __srt__(self):
+    def __str__(self):
         return self.nombre
 
 class Autor(models.Model):
@@ -30,5 +30,5 @@ class Autor(models.Model):
         verbose_name_plural = 'Autores'
         ordering = ['nombre']
 
-    def __srt__(self):
+    def __str__(self):
         return "{0},{1}".format(self.apellidos, self.nombre)
