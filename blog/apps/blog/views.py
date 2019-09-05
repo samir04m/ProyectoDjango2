@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from .models import *
 
 def home(request):
-    return render(request, 'index.html')
+    posts = Post.objects.filter(estado=True)
+    return render(request, 'index.html', {"posts":posts})
 
 def generales(request):
-    return render(request, 'generales.html')
+    posts = Post.objects.filter(estado=True,
+                                categoria=Categoria.objects.get(nombre='Tecnologia'))
+    return render(request, 'generales.html', {"posts":posts})
