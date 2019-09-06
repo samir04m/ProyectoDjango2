@@ -69,3 +69,7 @@ Muchos a muchos: ```autor_id = models.ManyToManyField(Autor)```
 ## Plugins
 [Django Import Export](https://django-import-export.readthedocs.io/en/latest/installation.html)
 [Django CKEditor](https://django-ckeditor.readthedocs.io/en/latest/#installation)
+
+## Query sets
+Busquedas exactas (Importa Mayus y minus): ```modelo = Modelo.objects.get(campo__exact = 'valor')```
+Busquedas inexactas (No Importa Mayus y minus): ```modelo = Modelo.objects.get(campo__iexact = 'valor')```
