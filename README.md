@@ -73,3 +73,4 @@ Muchos a muchos: ```autor_id = models.ManyToManyField(Autor)```
 ## Query sets
 Busquedas exactas (Importa Mayus y minus): ```modelo = Modelo.objects.get(campo__exact = 'valor')```
 Busquedas inexactas (No Importa Mayus y minus): ```modelo = Modelo.objects.get(campo__iexact = 'valor')```
+Si esta contenido en una palabra: ```modelo = Modelo.objects.get(campo__icontains = 'valor')```
