@@ -68,6 +68,7 @@
     </div>
   </header>
 
+{% block barra_busquedas %}
     <div class="container">
         <div class="row">
             <div class="col-md-12 search">
@@ -86,6 +87,7 @@
         </div>
     </div>
     <br><br>
+{% endblock %}
 
   {% block contenido %}
   <!-- Main Content -->
@@ -123,6 +125,29 @@
   <hr>
 
   {% endblock %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            {% if posts.has_previous %}
+            <div class="float-left">
+                <div class="clearfix">
+                    <a href="?page={{posts.previous_page_number}}{% if request.GET.search %} &q={{ request.GET.search }}{% endif %}" class="btn btn-primary float-left">Anterior</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            {% if posts.has_next %}
+            <div class="float-right">
+                <div class="clearfix">
+                    <a href="?page={{posts.next_page_number}}{% if request.GET.search %} &q={{ request.GET.search }} {% endif %}" class="btn btn-primary float-right">Siguente</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
   <!-- Footer -->
   <footer>
