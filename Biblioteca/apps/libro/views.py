@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.generic import TemplateView, ListView, UpdateView, CreateView
+from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DeleteView
 from django.urls import reverse_lazy
 
 from .forms import AutorForm
@@ -27,10 +27,11 @@ class CrearAutor(CreateView):
     template_name = 'libro/crear_autor.html'
     success_url = reverse_lazy('libro:listar_autor')
 
+class EliminarAutor(DeleteView):
+    model = Autor
 
-def eliminarAutor(request, id):
-    autor = Autor.objects.get(id=id)
-    if request.method == 'POST':
-        autor.delete()
+    def post(self,request,pk,*args,**kwargs):
+        object = Autor.objects.get(id = pk)
+        object.estado = False
+        object.save()
         return redirect('libro:listar_autor')
-    return render(request, 'libro/eliminar_autor.html', {'autor':autor})
