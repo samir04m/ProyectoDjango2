@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
+from django.views.generic import TemplateView
+
 from .forms import AutorForm
 from .models import Autor
 
-# Create your views here.
-def Home(request):
-    return render(request, 'index.html')
+class Inicio(TemplateView):
+    template_name = 'index.html'
 
 def crearAutor(request):
     if request.method == 'POST':
