@@ -1,12 +1,18 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from .forms import AutorForm
 from .models import Autor
 
 class Inicio(TemplateView):
     template_name = 'index.html'
+
+class ListadoAutor(ListView):
+    model = Autor
+    template_name = 'libro/listar_autor.html'
+    context_object_name = 'autores'
+    queryset = Autor.objects.filter(estado = True)
 
 def crearAutor(request):
     if request.method == 'POST':
