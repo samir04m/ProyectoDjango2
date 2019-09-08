@@ -7,6 +7,7 @@ from django.views.generic.edit import FormView
 from django.contrib.auth import login,logout
 from django.http import HttpResponseRedirect
 from .forms import FormularioLogin
+from django.contrib.auth.decorators import login_required
 
 class Login(FormView):
     template_name = 'login.html'
@@ -25,6 +26,7 @@ class Login(FormView):
         login(self.request,form.get_user())
         return super(Login,self).form_valid(form)
 
+@login_required
 def logoutUsuario(request):
     logout(request)
     return HttpResponseRedirect('/accounts/login/')
