@@ -74,3 +74,13 @@ Muchos a muchos: ```autor_id = models.ManyToManyField(Autor)```
 Busquedas exactas (Importa Mayus y minus): ```modelo = Modelo.objects.get(campo__exact = 'valor')```
 Busquedas inexactas (No Importa Mayus y minus): ```modelo = Modelo.objects.get(campo__iexact = 'valor')```
 Si esta contenido en una palabra: ```modelo = Modelo.objects.get(campo__icontains = 'valor')```
+
+**Para filtar por el valor de un atributo del modelo de la relacion**
+
+```modelo = Modelo.objects.filter(otroModelo__campo = 'valor')```
+
+## Templates
+**Imprimir el Label de un campo Tipo** ```{{  objeto.get_tipo_display }}```
+
+**Modificar impresion un DateFielda o DateTimeField** ```{{  objeto.fecha|date:'H:i d-m-Y' }}```
+
