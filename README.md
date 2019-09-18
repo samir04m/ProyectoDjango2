@@ -68,6 +68,7 @@ Muchos a muchos: ```autor_id = models.ManyToManyField(Autor)```
 
 ## Plugins
 [Django Import Export](https://django-import-export.readthedocs.io/en/latest/installation.html)
+
 [Django CKEditor](https://django-ckeditor.readthedocs.io/en/latest/#installation)
 
 ## Query sets
@@ -83,4 +84,7 @@ Si esta contenido en una palabra: ```modelo = Modelo.objects.get(campo__icontain
 **Imprimir el Label de un campo Tipo** ```{{  objeto.get_tipo_display }}```
 
 **Modificar impresion un DateFielda o DateTimeField** ```{{  objeto.fecha|date:'H:i d-m-Y' }}```
+[Mas Información](https://simpleisbetterthancomplex.com/references/2016/06/21/date-filter.html)
+
+**Truncar o limitar numero de caracteres**  ``` {{object.texto|truncatechars:'10'}} ```
 
